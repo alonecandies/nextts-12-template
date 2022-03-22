@@ -1,4 +1,4 @@
-import { informationConfig } from 'configs/informationConfig';
+import { informationConfig } from 'configs';
 import styles from './styles.module.scss';
 
 const Footer = () => (
