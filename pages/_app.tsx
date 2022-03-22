@@ -1,15 +1,27 @@
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
+import { ToastContainer } from 'react-toastify';
+import { metaConfig } from 'configs';
+import ErrorBoundary from '../layouts/ErrorBoundary/index';
 import 'styles/globals.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { metaConfig } from 'configs/metaConfig';
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
-		<>
+		<ErrorBoundary>
 			<DefaultSeo {...metaConfig} />
 			<Component {...pageProps} />
-		</>
+			<ToastContainer
+				position="top-right"
+				autoClose={1500}
+				hideProgressBar
+				newestOnTop={true}
+				closeOnClick
+				rtl={false}
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
+		</ErrorBoundary>
 	);
 }
 
