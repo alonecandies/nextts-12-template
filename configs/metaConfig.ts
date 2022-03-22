@@ -1,4 +1,4 @@
-export const metaConfig = {
+const metaConfig = {
 	title: 'My Site',
 	description: 'My next site',
 	canonical: 'https://www.example.com',
@@ -24,4 +24,7 @@ export const metaConfig = {
 		site: '@example',
 		creator: '@example',
 	},
+	lang: 'vi',
 };
+
+export default metaConfig;
