@@ -7,6 +7,10 @@ $container-max-widths: (
 );
 
 @import '~bootstrap/scss/bootstrap';
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'react-toastify/dist/ReactToastify.css';
+// @import 'public/assets/themes/quartz-bootstrap.min.css';
+
 
 * {
 	list-style: none;
