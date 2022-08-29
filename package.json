@@ -8,7 +8,8 @@
 		"start": "next start",
 		"lint": "next lint --no-cache --fix",
 		"type-check": "tsc --project tsconfig.json --pretty --noEmit",
-		"postinstall": "husky install"
+		"postinstall": "husky install",
+		"prepare": "husky install && chmod ug+x .husky/*"
 	},
 	"dependencies": {
 		"axios": "^0.27.2",
