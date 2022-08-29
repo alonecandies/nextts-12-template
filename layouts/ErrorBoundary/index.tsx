@@ -1,12 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { Component, ErrorInfo, ReactNode } from 'react';
 import NotFound from 'pages/404';
 
-export default class ErrorBoundary extends React.Component {
-	state: any;
+interface Props {
+	children?: ReactNode;
+}
 
-	static propTypes = {
-		children: PropTypes.node,
+interface State {
+	hasError: boolean;
+}
+
+export default class ErrorBoundary extends Component<Props, State> {
+	public state: State = {
+		hasError: false,
 	};
 
 	constructor(props: any) {
@@ -14,16 +19,17 @@ export default class ErrorBoundary extends React.Component {
 		this.state = { hasError: false };
 	}
 
-	static getDerivedStateFromError() {
+	public static getDerivedStateFromError(err: Error): State {
 		// Update state so the next render will show the fallback UI.
+		console.log(err);
 		return { hasError: true };
 	}
 
-	componentDidCatch(error: any, errorInfo: any) {
-		console.error(error, errorInfo);
+	public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+		console.error('Uncaught error:', error, errorInfo);
 	}
 
-	render() {
+	public render() {
 		if (this.state.hasError) {
 			// You can render any custom fallback UI
 			return <NotFound />;
